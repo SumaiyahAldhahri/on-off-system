@@ -1,1 +1,26 @@
 # on-off-system
+
+const int buttonPin = 8;
+const int ledPin = 3;
+
+int state  = 0;
+int was_state = LOW;
+
+void setup()
+{
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop()
+{
+  state = digitalRead(buttonPin);
+  if (state == HIGH) {
+    was_state = !was_state;
+    delay(500);}
+  if (was_state == HIGH){
+    digitalWrite(ledPin, HIGH);}
+  else {
+    digitalWrite(ledPin, LOW);
+  }
+}
